@@ -1,0 +1,16 @@
+C:\Users\niels\OneDrive - Office 365 Fontys\General\Le Bomb\Le Bomb\bin\Debug\Le Bomb.exe.config
+C:\Users\niels\OneDrive - Office 365 Fontys\General\Le Bomb\Le Bomb\bin\Debug\Le Bomb.exe
+C:\Users\niels\OneDrive - Office 365 Fontys\General\Le Bomb\Le Bomb\bin\Debug\Le Bomb.pdb
+C:\Users\niels\OneDrive - Office 365 Fontys\General\Le Bomb\Le Bomb\obj\Debug\Le Bomb.csproj.AssemblyReference.cache
+C:\Users\niels\OneDrive - Office 365 Fontys\General\Le Bomb\Le Bomb\obj\Debug\Le Bomb.csproj.SuggestedBindingRedirects.cache
+C:\Users\niels\OneDrive - Office 365 Fontys\General\Le Bomb\Le Bomb\obj\Debug\MainWindow.g.cs
+C:\Users\niels\OneDrive - Office 365 Fontys\General\Le Bomb\Le Bomb\obj\Debug\App.g.cs
+C:\Users\niels\OneDrive - Office 365 Fontys\General\Le Bomb\Le Bomb\obj\Debug\Le Bomb_MarkupCompile.cache
+C:\Users\niels\OneDrive - Office 365 Fontys\General\Le Bomb\Le Bomb\obj\Debug\Le Bomb_MarkupCompile.lref
+C:\Users\niels\OneDrive - Office 365 Fontys\General\Le Bomb\Le Bomb\obj\Debug\MainWindow.baml
+C:\Users\niels\OneDrive - Office 365 Fontys\General\Le Bomb\Le Bomb\obj\Debug\Le Bomb.g.resources
+C:\Users\niels\OneDrive - Office 365 Fontys\General\Le Bomb\Le Bomb\obj\Debug\Le_Bomb.Properties.Resources.resources
+C:\Users\niels\OneDrive - Office 365 Fontys\General\Le Bomb\Le Bomb\obj\Debug\Le Bomb.csproj.GenerateResource.cache
+C:\Users\niels\OneDrive - Office 365 Fontys\General\Le Bomb\Le Bomb\obj\Debug\Le Bomb.csproj.CoreCompileInputs.cache
+C:\Users\niels\OneDrive - Office 365 Fontys\General\Le Bomb\Le Bomb\obj\Debug\Le Bomb.exe
+C:\Users\niels\OneDrive - Office 365 Fontys\General\Le Bomb\Le Bomb\obj\Debug\Le Bomb.pdb

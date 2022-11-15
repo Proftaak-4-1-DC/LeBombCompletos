@@ -22,13 +22,34 @@ namespace Le_Bomb
     /// </summary>
     public partial class MainWindow : Window
     {
+        private int _currentLevel;
+        public int currentLevel
+        {
+            get => _currentLevel;
+            set
+            {
+
+            }
+        } = 0;
+
         public MainWindow()
         {
             InitializeComponent();
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void StartLevel(int level)
         {
+            switch (level)
+            {
+                case
+            }
+        }
+
+        private void Door_Click(object sender, RoutedEventArgs e)
+        {
+            currentLevel++;
+            StartLevel(currentLevel);
+
             Process[] iets = Process.GetProcessesByName("Woordzoeker");
             
             if (iets.Length > 0)

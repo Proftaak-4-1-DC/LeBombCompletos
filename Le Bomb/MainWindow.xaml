@@ -7,22 +7,22 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="800" Width="1200">
     <Grid Background="#FF636468">
-        <Button x:Name="BtnDoor1"  Content="Button" Click="Door1_Click" Margin="41,287,879,0" VerticalAlignment="Top" Height="248" Width="280">
+        <Button x:Name="BtnDoor1"  Content="Button" Click="Door_Click" Margin="41,287,879,0" VerticalAlignment="Top" Height="248" Width="280">
             <Button.Background>
                 <ImageBrush ImageSource="/door.png"/>
             </Button.Background>
         </Button>
-        <Button x:Name="BtnDoor2" Content="Button" Click="Door2_Click" Margin="321,287,599,0" VerticalAlignment="Top" Height="248" Width="280">
+        <Button x:Name="BtnDoor2" Content="Button" Click="Door_Click" Margin="321,287,599,0" VerticalAlignment="Top" Height="248" Width="280">
             <Button.Background>
                 <ImageBrush ImageSource="/door.png"/>
             </Button.Background>
         </Button>
-        <Button x:Name="BtnDoor3" Content="Button" Click="Door3_Click" Margin="601,287,319,0" VerticalAlignment="Top" Height="248" Width="280">
+        <Button x:Name="BtnDoor3" Content="Button" Click="Door_Click" Margin="601,287,319,0" VerticalAlignment="Top" Height="248" Width="280">
             <Button.Background>
                 <ImageBrush ImageSource="/door.png"/>
             </Button.Background>
         </Button>
-        <Button x:Name="BtnDoor4" Content="Button" Click="Door4_Click" Margin="881,287,39,0" VerticalAlignment="Top" Height="248" Width="280">
+        <Button x:Name="BtnDoor4" Content="Button" Click="Door_Click" Margin="881,287,39,0" VerticalAlignment="Top" Height="248" Width="280">
             <Button.Background>
                 <ImageBrush ImageSource="/door.png"/>
             </Button.Background>

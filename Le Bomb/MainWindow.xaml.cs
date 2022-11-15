@@ -22,16 +22,7 @@ namespace Le_Bomb
     /// </summary>
     public partial class MainWindow : Window
     {
-        private int _currentLevel;
-        public int currentLevel
-        {
-            get => _currentLevel;
-            set
-            {
-
-            }
-        } = 0;
-
+        private int currentLevel { get; set; }
         public MainWindow()
         {
             InitializeComponent();
@@ -39,9 +30,29 @@ namespace Le_Bomb
 
         private void StartLevel(int level)
         {
+            DirectoryInfo rootInfo = new DirectoryInfo(Directory.GetCurrentDirectory());
+
             switch (level)
             {
-                case
+                case 1: // Find the Bomb
+                    {
+                        break;
+                    }
+
+                case 2: // Woordzoeker
+                    {
+                        break;
+                    }
+
+                case 3: // Raadsel
+                    {
+                        break;
+                    }
+
+                case 4: // Picklocker
+                    {
+                        break;
+                    }
             }
         }
 

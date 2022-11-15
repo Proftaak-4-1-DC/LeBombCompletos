@@ -7,10 +7,9 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="800" Width="1200">
     <Grid>
-        <Button x:Name="BtnDoor1"  Content="Button" Click="Door1_Click" Margin="48,0,812,0" VerticalAlignment="Center" Height="194"/>
-        <Button x:Name="BtnDoor2" Content="Button" Click="Door2_Click" Margin="388,0,548,0" VerticalAlignment="Center" Height="194"/>
-        <Button x:Name="BtnDoor3" Content="Button" Click="Door3_Click" Margin="652,295,220,0" VerticalAlignment="Top" Height="194"/>
-        <Button x:Name="BtnDoor4" Content="Button" Click="Door4_Click" Margin="985,0,-3,0" VerticalAlignment="Center" Height="194"/>
-
+        <Button x:Name="BtnDoor1"  Content="Button" Click="Door_Click" Margin="48,0,812,0" VerticalAlignment="Center" Height="194"/>
+        <Button x:Name="BtnDoor2" Content="Button" Click="Door_Click" Margin="388,0,548,0" VerticalAlignment="Center" Height="194"/>
+        <Button x:Name="BtnDoor3" Content="Button" Click="Door_Click" Margin="652,295,220,0" VerticalAlignment="Top" Height="194"/>
+        <Button x:Name="BtnDoor4" Content="Button" Click="Door_Click" Margin="985,0,-3,0" VerticalAlignment="Center" Height="194"/>
     </Grid>
 </Window>

@@ -1,0 +1,9 @@
+[submodule "Kamers/Woordzoeker"]
+	path = Kamers/Woordzoeker
+	url = https://github.com/Proftaak-4-1-DC/Woordzoeker.git
+[submodule "Kamers/VirtualDesktop"]
+	path = Kamers/VirtualDesktop
+	url = https://github.com/Proftaak-4-1-DC/Virtual-desktop.git
+[submodule "Kamers/FindTheBomb"]
+	path = Kamers/FindTheBomb
+	url = https://github.com/Proftaak-4-1-DC/Find-the-bomb.git

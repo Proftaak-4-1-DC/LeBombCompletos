@@ -5,6 +5,8 @@ VisualStudioVersion = 17.4.33103.184
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Le Bomb", "Le Bomb\Le Bomb.csproj", "{F8EC7D32-8794-4F0D-A13E-EE345B3DA982}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Woordzoeker", "Kamers\Woordzoeker\Woordzoeker\Woordzoeker\Woordzoeker.csproj", "{DC6DEC32-12FC-4291-8786-EC4B0F5ECF26}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{F8EC7D32-8794-4F0D-A13E-EE345B3DA982}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F8EC7D32-8794-4F0D-A13E-EE345B3DA982}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F8EC7D32-8794-4F0D-A13E-EE345B3DA982}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DC6DEC32-12FC-4291-8786-EC4B0F5ECF26}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DC6DEC32-12FC-4291-8786-EC4B0F5ECF26}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DC6DEC32-12FC-4291-8786-EC4B0F5ECF26}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DC6DEC32-12FC-4291-8786-EC4B0F5ECF26}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

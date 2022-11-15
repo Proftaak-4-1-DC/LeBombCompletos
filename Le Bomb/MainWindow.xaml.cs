@@ -12,6 +12,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Diagnostics;
+using System.IO;
 
 namespace Le_Bomb
 {
@@ -23,6 +25,22 @@ namespace Le_Bomb
         public MainWindow()
         {
             InitializeComponent();
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            Process[] iets = Process.GetProcessesByName("Woordzoeker");
+            
+            if (iets.Length > 0)
+            {
+                MessageBox.Show("Woordzoeker is al open!");
+            } else
+            {
+                DirectoryInfo root = new DirectoryInfo(Directory.GetCurrentDirectory());
+                root = root.Parent.Parent.Parent;
+
+                Process.Start(root.FullName + "\\Kamers\\Woordzoeker\\Woordzoeker\\Woordzoeker\\bin\\Debug\\Woordzoeker.exe");
+            }
         }
     }
 }

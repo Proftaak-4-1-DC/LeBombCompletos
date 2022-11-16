@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Le Bomb", "Le Bomb\Le Bomb.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Woordzoeker", "Kamers\Woordzoeker\Woordzoeker\Woordzoeker\Woordzoeker.csproj", "{DC6DEC32-12FC-4291-8786-EC4B0F5ECF26}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LockPicker", "Kamers\Picklocker\LockPicker\LockPicker.csproj", "{CBE099C5-60E6-4724-9734-CC5E49C25972}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{DC6DEC32-12FC-4291-8786-EC4B0F5ECF26}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DC6DEC32-12FC-4291-8786-EC4B0F5ECF26}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DC6DEC32-12FC-4291-8786-EC4B0F5ECF26}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CBE099C5-60E6-4724-9734-CC5E49C25972}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CBE099C5-60E6-4724-9734-CC5E49C25972}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CBE099C5-60E6-4724-9734-CC5E49C25972}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CBE099C5-60E6-4724-9734-CC5E49C25972}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

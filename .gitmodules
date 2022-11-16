@@ -7,3 +7,9 @@
 [submodule "Kamers/FindTheBomb"]
 	path = Kamers/FindTheBomb
 	url = https://github.com/Proftaak-4-1-DC/Find-the-bomb.git
+[submodule "Bomb-Tech"]
+	path = Bomb-Tech
+	url = https://github.com/Proftaak-4-1-DC/Bomb-Tech.git
+[submodule "Kamers/Picklocker"]
+	path = Kamers/Picklocker
+	url = https://github.com/Proftaak-4-1-DC/PinLocker.git

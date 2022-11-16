@@ -28,40 +28,56 @@ namespace Le_Bomb
             InitializeComponent();
         }
 
-        private void StartLevel(int level)
+        private bool IsRunning()
+        {
+            Process[] iets = Process.GetProcessesByName("Woordzoeker");
+
+            return false;
+        }
+
+        private void StartLevel()
         {
             DirectoryInfo rootInfo = new DirectoryInfo(Directory.GetCurrentDirectory());
+            rootInfo = rootInfo.Parent.Parent.Parent;
+            rootInfo = new DirectoryInfo(rootInfo + "\\Kamers");
 
+            // Do check if a level is running
+            if (IsRunning())
+                return;
+
+            // Start next level
             switch (level)
             {
                 case 1: // Find the Bomb
-                    {
-                        break;
-                    }
+                {
+                    
+                    break;
+                }
 
                 case 2: // Woordzoeker
-                    {
-                        break;
-                    }
+                {
+                    break;
+                }
 
                 case 3: // Raadsel
-                    {
-                        break;
-                    }
+                {
+                    break;
+                }
 
                 case 4: // Picklocker
-                    {
-                        break;
-                    }
+                {
+                    break;
+                }
             }
+
+            // Open door
         }
 
         private void Door_Click(object sender, RoutedEventArgs e)
         {
             currentLevel++;
-            StartLevel(currentLevel);
+            StartLevel();
 
-            Process[] iets = Process.GetProcessesByName("Woordzoeker");
             
             if (iets.Length > 0)
             {

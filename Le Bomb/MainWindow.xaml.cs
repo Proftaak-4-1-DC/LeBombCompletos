@@ -25,7 +25,6 @@ namespace Le_Bomb
     public partial class MainWindow : Window
     {
         private int currentLevel { get; set; } = 1;
-        private bool soundPlayed = false;
         private SoundPlayer soundPlayer = new SoundPlayer("door.wav");
 
         public MainWindow()
@@ -57,9 +56,10 @@ namespace Le_Bomb
             {
                 case 1: // Find the Bomb
                 {
-                    string filepath = rootInfo.FullName + "\\VirtualDesktop\\index.html";
+                    string filepath = rootInfo.FullName + "\\FindTheBomb\\findthebom.html";
                     filepath = "\"" + filepath + "\"";
-                    string arguments = "-start-maximized";
+                    string arguments = "--start-maximized --start-fullscreen";
+
                     ProcessStartInfo startInfo = new ProcessStartInfo("chrome.exe", arguments + " " + filepath);
                     Process.Start(startInfo);
                     break;
@@ -74,18 +74,23 @@ namespace Le_Bomb
 
                 case 3: // Raadsel
                 {
-                    string filepath = rootInfo.FullName + "\\FindTheBomb\\home.html";
+                    string filepath = rootInfo.FullName + "\\VirtualDesktop\\index.html";
+
                     filepath = "\"" + filepath + "\"";
                     string arguments = "-start-maximized";
                     ProcessStartInfo startInfo = new ProcessStartInfo("chrome.exe", arguments + " " + filepath);
+
                     Process.Start(startInfo);
                     break;
                 }
 
                 case 4: // Picklocker
                 {
-                    string filepath = rootInfo.FullName + "\\Picklocker";
-                    Process.Start(filepath);
+                    string filepath = rootInfo.FullName + "\\Picklocker\\LockPicker\\bin\\Debug\\net6.0-windows\\LockPicker.exe";
+                    ProcessStartInfo startInfo = new ProcessStartInfo(filepath);
+                    startInfo.WorkingDirectory = System.IO.Path.GetDirectoryName(filepath);
+
+                    Process.Start(startInfo);
                     break;
                 }
             }
@@ -111,8 +116,6 @@ namespace Le_Bomb
             }
 
             button.Background = new ImageBrush(new BitmapImage(new Uri("doorOpen.png", UriKind.Relative)));
-            soundPlayed = false;
-            soundPlayed = true;
             soundPlayer.PlaySync();
             StartLevel();
         }

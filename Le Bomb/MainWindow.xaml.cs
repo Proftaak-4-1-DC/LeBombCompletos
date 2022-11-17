@@ -54,13 +54,12 @@ namespace Le_Bomb
             // Start next level
             switch (currentLevel)
             {
-                case 1: // Find the Bomb
+                case 1: // Picklocker
                 {
-                    string filepath = rootInfo.FullName + "\\FindTheBomb\\findthebom.html";
-                    filepath = "\"" + filepath + "\"";
-                    string arguments = "--start-maximized --start-fullscreen";
+                    string filepath = rootInfo.FullName + "\\Picklocker\\LockPicker\\bin\\Debug\\net6.0-windows\\LockPicker.exe";
+                    ProcessStartInfo startInfo = new ProcessStartInfo(filepath);
+                    startInfo.WorkingDirectory = System.IO.Path.GetDirectoryName(filepath);
 
-                    ProcessStartInfo startInfo = new ProcessStartInfo("chrome.exe", arguments + " " + filepath);
                     Process.Start(startInfo);
                     break;
                 }
@@ -75,21 +74,21 @@ namespace Le_Bomb
                 case 3: // Raadsel
                 {
                     string filepath = rootInfo.FullName + "\\VirtualDesktop\\index.html";
-
                     filepath = "\"" + filepath + "\"";
-                    string arguments = "-start-maximized";
-                    ProcessStartInfo startInfo = new ProcessStartInfo("chrome.exe", arguments + " " + filepath);
+                    string arguments = "--start-maximized --start-fullscreen";
 
+                    ProcessStartInfo startInfo = new ProcessStartInfo("chrome.exe", arguments + " " + filepath);
                     Process.Start(startInfo);
                     break;
                 }
 
-                case 4: // Picklocker
+                case 4: // Find the bomb
                 {
-                    string filepath = rootInfo.FullName + "\\Picklocker\\LockPicker\\bin\\Debug\\net6.0-windows\\LockPicker.exe";
-                    ProcessStartInfo startInfo = new ProcessStartInfo(filepath);
-                    startInfo.WorkingDirectory = System.IO.Path.GetDirectoryName(filepath);
+                    string filepath = rootInfo.FullName + "\\FindTheBomb\\findthebom.html";
+                    filepath = "\"" + filepath + "\"";
+                    string arguments = "--start-maximized --start-fullscreen";
 
+                    ProcessStartInfo startInfo = new ProcessStartInfo("chrome.exe", arguments + " " + filepath);
                     Process.Start(startInfo);
                     break;
                 }
@@ -118,12 +117,29 @@ namespace Le_Bomb
             button.Background = new ImageBrush(new BitmapImage(new Uri("doorOpen.png", UriKind.Relative)));
             soundPlayer.PlaySync();
             StartLevel();
-        }
 
-        private void BtnDoor_MouseEnter(object sender, MouseEventArgs e)
-        {
-            Button button = (Button)sender;
-            button.Background = new ImageBrush(new BitmapImage(new Uri("door.png", UriKind.Relative)));
+            if (currentLevel == 5)
+            {
+                bool runWhileLoop = true;
+                while (runWhileLoop)
+                {
+                    if (!IsRunning())
+                    {
+                        DirectoryInfo rootInfo = new DirectoryInfo(Directory.GetCurrentDirectory());
+                        rootInfo = rootInfo.Parent.Parent.Parent;
+                        rootInfo = new DirectoryInfo(rootInfo.FullName + "\\Kamers");
+
+                        string filepath = rootInfo.FullName + "\\FindTheBomb\\rebus.html";
+                        filepath = "\"" + filepath + "\"";
+                        string arguments = "--start-maximized --start-fullscreen";
+
+                        ProcessStartInfo startInfo = new ProcessStartInfo("chrome.exe", arguments + " " + filepath);
+                        Process.Start(startInfo);
+
+                        runWhileLoop = false;
+                    }
+                }
+            }
         }
     }
 }

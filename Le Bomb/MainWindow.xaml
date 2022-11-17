@@ -17,7 +17,7 @@
                 <ImageBrush ImageSource="/door.png"/>
             </Button.Background>
         </Button>
-        <Button x:Name="BtnDoor3" Click="Door_Click" Margin="601,287,319,0" VerticalAlignment="Top" Height="248" Width="280" BorderBrush="{x:Null}" MouseEnter="BtnDoor_MouseEnter">
+        <Button x:Name="BtnDoor3" Click="Door_Click" Margin="601,287,319,0" VerticalAlignment="Top" Height="248" Width="280" BorderBrush="{x:Null}">
             <Button.Background>
                 <ImageBrush ImageSource="/door.png"/>
             </Button.Background>

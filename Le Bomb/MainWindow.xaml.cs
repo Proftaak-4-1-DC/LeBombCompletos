@@ -57,7 +57,7 @@ namespace Le_Bomb
             {
                 case 1: // Find the Bomb
                 {
-                    string filepath = rootInfo.FullName + "\\FindTheBomb\\findthebom.html";
+                    string filepath = rootInfo.FullName + "\\VirtualDesktop\\index.html";
                     filepath = "\"" + filepath + "\"";
                     string arguments = "-start-maximized";
                     ProcessStartInfo startInfo = new ProcessStartInfo("chrome.exe", arguments + " " + filepath);
@@ -67,16 +67,25 @@ namespace Le_Bomb
 
                 case 2: // Woordzoeker
                 {
+                    string filepath = rootInfo.FullName + "\\Woordzoeker\\Woordzoeker\\Woordzoeker\\bin\\Debug\\Woordzoeker.exe";
+                    Process.Start(filepath);
                     break;
                 }
 
                 case 3: // Raadsel
                 {
+                    string filepath = rootInfo.FullName + "\\FindTheBomb\\home.html";
+                    filepath = "\"" + filepath + "\"";
+                    string arguments = "-start-maximized";
+                    ProcessStartInfo startInfo = new ProcessStartInfo("chrome.exe", arguments + " " + filepath);
+                    Process.Start(startInfo);
                     break;
                 }
 
                 case 4: // Picklocker
                 {
+                    string filepath = rootInfo.FullName + "\\Picklocker";
+                    Process.Start(filepath);
                     break;
                 }
             }

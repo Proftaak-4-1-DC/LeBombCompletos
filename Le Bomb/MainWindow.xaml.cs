@@ -1,21 +1,12 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 using System.Diagnostics;
 using System.IO;
-using System.Timers;
 using System.Media;
+using System.Threading;
 
 namespace Le_Bomb
 {
@@ -56,7 +47,7 @@ namespace Le_Bomb
             {
                 case 1: // Picklocker
                 {
-                    string filepath = rootInfo.FullName + "\\Picklocker\\LockPicker\\bin\\Debug\\net6.0-windows\\LockPicker.exe";
+                    string filepath = rootInfo.FullName + "\\Picklocker\\LockPicker\\bin\\Release\\net6.0-windows\\LockPicker.exe";
                     ProcessStartInfo startInfo = new ProcessStartInfo(filepath);
                     startInfo.WorkingDirectory = System.IO.Path.GetDirectoryName(filepath);
 
@@ -66,7 +57,7 @@ namespace Le_Bomb
 
                 case 2: // Woordzoeker
                 {
-                    string filepath = rootInfo.FullName + "\\Woordzoeker\\Woordzoeker\\Woordzoeker\\bin\\Debug\\Woordzoeker.exe";
+                    string filepath = rootInfo.FullName + "\\Woordzoeker\\Woordzoeker\\Woordzoeker\\bin\\Release\\Woordzoeker.exe";
                     Process.Start(filepath);
                     break;
                 }
@@ -115,7 +106,9 @@ namespace Le_Bomb
             }
 
             button.Background = new ImageBrush(new BitmapImage(new Uri("doorOpen.png", UriKind.Relative)));
-            soundPlayer.PlaySync();
+            soundPlayer.Play();
+
+            Thread.Sleep(2000);
             StartLevel();
 
             if (currentLevel == 5)

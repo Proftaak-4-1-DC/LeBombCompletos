@@ -17,10 +17,24 @@ namespace Le_Bomb
     {
         private int currentLevel { get; set; } = 1;
         private SoundPlayer soundPlayer = new SoundPlayer("door.wav");
+        private Stopwatch stopwatch = new Stopwatch();
 
         public MainWindow()
         {
             InitializeComponent();
+
+            // Open SQL connection
+
+            stopwatch.Start();
+        }
+
+        private void PushTimeDataToDataBase()
+        {
+            //stopwatch.Elapsed;
+
+            // Create query
+
+            // Insert into
         }
 
         private bool IsRunning()
@@ -85,6 +99,7 @@ namespace Le_Bomb
                 }
             }
 
+            PushTimeDataToDataBase();
             currentLevel++;
         }
 
@@ -106,9 +121,10 @@ namespace Le_Bomb
             }
 
             button.Background = new ImageBrush(new BitmapImage(new Uri("doorOpen.png", UriKind.Relative)));
-            soundPlayer.Play();
+            this.InvalidateVisual();
 
-            Thread.Sleep(2000);
+            soundPlayer.PlaySync();
+
             StartLevel();
 
             if (currentLevel == 5)
@@ -132,6 +148,8 @@ namespace Le_Bomb
                         runWhileLoop = false;
                     }
                 }
+
+                // Close SQL connection
             }
         }
     }

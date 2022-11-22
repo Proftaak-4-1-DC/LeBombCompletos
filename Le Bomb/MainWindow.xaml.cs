@@ -7,6 +7,8 @@ using System.Diagnostics;
 using System.IO;
 using System.Media;
 using System.Threading;
+using System.IO.Ports;
+using System.Linq;
 
 namespace Le_Bomb
 {
@@ -19,13 +21,41 @@ namespace Le_Bomb
         private SoundPlayer soundPlayer = new SoundPlayer("door.wav");
         private Stopwatch stopwatch = new Stopwatch();
 
+        // Serial data transfer
+        private SerialPort serialPort = new SerialPort();
+        private String dataString;
+
         public MainWindow()
         {
             InitializeComponent();
 
             // Open SQL connection
 
+            // Connect serial port
+            try
+            {
+                serialPort.PortName = "COM4";
+                serialPort.BaudRate = 9600;
+                serialPort.DataReceived += new SerialDataReceivedEventHandler(OnDataReceived);
+                serialPort.Open();
+            } catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+
             stopwatch.Start();
+        }
+
+        private void OnDataReceived(object sender, SerialDataReceivedEventArgs e)
+        {
+            String message = serialPort.ReadExisting();
+            dataString += message;
+
+            if (!String.IsNullOrEmpty(dataString) && dataString.Last() == '\n')
+            {
+                TxtTimer.Content = dataString.Trim('\n');
+                dataString = String.Empty;
+            }
         }
 
         private void PushTimeDataToDataBase()

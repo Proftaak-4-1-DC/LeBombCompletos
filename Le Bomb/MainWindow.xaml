@@ -76,6 +76,6 @@
                 <ImageBrush ImageSource="/door.png"/>
             </Button.Background>
         </Button>
-
+        <Label x:Name="TxtTimer" Content="Timer" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,50,0,0" FontSize="72"/>
     </Grid>
 </Window>

@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
@@ -34,7 +34,7 @@ namespace Le_Bomb
             // Connect serial port
             try
             {
-                serialPort.PortName = "COM5";
+                serialPort.PortName = "COM7";
                 serialPort.BaudRate = 9600;
                 serialPort.DataReceived += new SerialDataReceivedEventHandler(OnDataReceived);
                 serialPort.Open();

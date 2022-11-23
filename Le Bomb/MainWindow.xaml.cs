@@ -34,7 +34,7 @@ namespace Le_Bomb
             // Connect serial port
             try
             {
-                serialPort.PortName = "COM4";
+                serialPort.PortName = "COM5";
                 serialPort.BaudRate = 9600;
                 serialPort.DataReceived += new SerialDataReceivedEventHandler(OnDataReceived);
                 serialPort.Open();
@@ -53,7 +53,11 @@ namespace Le_Bomb
 
             if (!String.IsNullOrEmpty(dataString) && dataString.Last() == '\n')
             {
-                TxtTimer.Content = dataString.Trim('\n');
+                this.Dispatcher.Invoke(() =>
+                {
+                    TxtTimer.Content = dataString.Trim('\n');
+                }
+                );
                 dataString = String.Empty;
             }
         }

@@ -77,5 +77,9 @@
             </Button.Background>
         </Button>
         <Label x:Name="TxtTimer" Content="Timer" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,50,0,0" FontSize="72"/>
+        <Label Content="Picklocker" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="105,210,0,0" FontSize="32"/>
+        <Label Content="Woordzoeker" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="361,210,0,0" FontSize="32"/>
+        <Label Content="Virtual Desktop" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="627,210,0,0" FontSize="32"/>
+        <Label Content="Find the Bomb" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="912,210,0,0" FontSize="32"/>
     </Grid>
 </Window>

@@ -9,6 +9,7 @@ using System.Media;
 using System.Threading;
 using System.IO.Ports;
 using System.Linq;
+using System.Data.SqlClient;
 
 namespace Le_Bomb
 {
@@ -17,19 +18,48 @@ namespace Le_Bomb
     /// </summary>
     public partial class MainWindow : Window
     {
-        private int currentLevel { get; set; } = 1;
         private SoundPlayer soundPlayer = new SoundPlayer("door.wav");
         private Stopwatch stopwatch = new Stopwatch();
 
         // Serial data transfer
         private SerialPort serialPort = new SerialPort();
-        private String dataString;
+        private String dataString { get; set; }
+        // Database 
+        private SqlConnection sqlConn = new SqlConnection("Data Source=145.220.75.88;User ID=Beheerder;Password=P@ssword;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False");
+        private SqlDataAdapter sqlDataAdapter = new SqlDataAdapter();
+        private SqlCommand sqlCommand { get; set; }
+        private SqlDataReader sqlDataReader { get; set; }
+        private int currentLevel { get; set; } = 1;
+        private int RunID { get; set; }
+        private String userName { get; set; }
+        private int timer { get; set; }
 
         public MainWindow()
         {
             InitializeComponent();
 
-            // Open SQL connection
+            // Open SQL Connection
+            OpenSqlConnection();
+
+            // Get amount of runs to determine the current run ID
+            sqlCommand = new SqlCommand("SELECT COUNT(id) FROM runs", sqlConn);
+            sqlDataReader = sqlCommand.ExecuteReader();
+            
+            while (sqlDataReader.Read())
+            {
+                RunID = sqlDataReader.GetInt32(0) + 1;
+            }
+
+            // Clean up
+            sqlDataReader.Close();
+            sqlCommand.Dispose();
+
+            // Insert run into database
+            sqlCommand = new SqlCommand("INSERT INTO runs (timer) VALUES (900)", sqlConn);
+            sqlDataAdapter.InsertCommand = sqlCommand;
+            sqlDataAdapter.InsertCommand.ExecuteNonQuery();
+
+            sqlCommand.Dispose();
 
             // Connect serial port
             try
@@ -46,6 +76,45 @@ namespace Le_Bomb
             stopwatch.Start();
         }
 
+        private String ConvertSecondsToTime()
+        {
+            int secs, mins;
+            String str = "";
+
+            mins = timer / 60;
+            secs = timer - (60 * mins);
+
+            if (mins < 10)
+                str += "0";
+            str += mins;
+            str += ":";
+
+            if (secs < 10)
+                str += "0";
+            str += secs;
+
+            return str;
+        }
+
+        private void OpenSqlConnection()
+        {
+            try
+            {
+                sqlConn.Open();
+            }
+            catch (SqlException ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void UpdateSqlRun(int timer)
+        {
+            sqlCommand = new SqlCommand("UPDATE runs SET timer='" + timer + "' WHERE id=" + RunID, sqlConn);
+            sqlDataAdapter.UpdateCommand = sqlCommand;
+            sqlDataAdapter.UpdateCommand.ExecuteNonQuery();
+        }
+
         private void OnDataReceived(object sender, SerialDataReceivedEventArgs e)
         {
             String message = serialPort.ReadExisting();
@@ -53,22 +122,23 @@ namespace Le_Bomb
 
             if (!String.IsNullOrEmpty(dataString) && dataString.Last() == '\n')
             {
+                String finalString = dataString.Trim('\n');
+                finalString = finalString.Trim('\r');
+
+                dataString = String.Empty;
+
+                if (dataString.Length < 4)
+                {
+                    timer = Convert.ToInt32(finalString);
+                    UpdateSqlRun(timer);
+                }
+
                 this.Dispatcher.Invoke(() =>
                 {
-                    TxtTimer.Content = dataString.Trim('\n');
+                    TxtTimer.Content = ConvertSecondsToTime();
                 }
                 );
-                dataString = String.Empty;
             }
-        }
-
-        private void PushTimeDataToDataBase()
-        {
-            //stopwatch.Elapsed;
-
-            // Create query
-
-            // Insert into
         }
 
         private bool IsRunning()
@@ -133,7 +203,6 @@ namespace Le_Bomb
                 }
             }
 
-            PushTimeDataToDataBase();
             currentLevel++;
         }
 

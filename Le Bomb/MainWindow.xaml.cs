@@ -127,7 +127,7 @@ namespace Le_Bomb
 
                 dataString = String.Empty;
 
-                if (dataString.Length < 4)
+                if (finalString.Length < 4)
                 {
                     timer = Convert.ToInt32(finalString);
                     UpdateSqlRun(timer);

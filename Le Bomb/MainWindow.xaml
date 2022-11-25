@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Le_Bomb"
         mc:Ignorable="d"
-        Title="MainWindow" Height="800" Width="1200">
+        Title="MainWindow" Height="1080" Width="1920">
     <Window.Resources>
         <Style x:Key="FocusVisual">
             <Setter Property="Control.Template">
@@ -77,9 +77,9 @@
             </Button.Background>
         </Button>
         <Label x:Name="TxtTimer" Content="Timer" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,50,0,0" FontSize="72"/>
-        <Label Content="Picklocker" VerticalAlignment="Top" Margin="105,210,0,0" FontSize="32"/>
-        <Label Content="Woordzoeker" VerticalAlignment="Top" Margin="361,210,0,0" FontSize="32"/>
-        <Label Content="Virtual Desktop" VerticalAlignment="Top" Margin="627,210,0,0" FontSize="32"/>
-        <Label Content="Find the Bomb" VerticalAlignment="Top" Margin="912,210,0,0" FontSize="32"/>
+        <Label Content="Picklocker" VerticalAlignment="Top" Margin="459,200,-354,0" FontSize="32"/>
+        <Label Content="Woordzoeker" VerticalAlignment="Top" Margin="715,200,-354,0" FontSize="32"/>
+        <Label Content="Virtual Desktop" VerticalAlignment="Top" Margin="981,200,-354,0" FontSize="32"/>
+        <Label Content="Find the Bomb" VerticalAlignment="Top" Margin="1266,200,-354,0" FontSize="32"/>
     </Grid>
 </Window>

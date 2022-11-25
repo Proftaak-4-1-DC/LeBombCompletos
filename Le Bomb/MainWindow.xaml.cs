@@ -64,7 +64,7 @@ namespace Le_Bomb
             // Connect serial port
             try
             {
-                serialPort.PortName = "COM7";
+                serialPort.PortName = "COM5";
                 serialPort.BaudRate = 9600;
                 serialPort.DataReceived += new SerialDataReceivedEventHandler(OnDataReceived);
                 serialPort.Open();

@@ -20,6 +20,7 @@ namespace Le_Bomb
     {
         private SoundPlayer soundPlayer = new SoundPlayer("door.wav");
         private Stopwatch stopwatch = new Stopwatch();
+        private bool OfflineMode = true;
 
         // Serial data transfer
         private SerialPort serialPort = new SerialPort();
@@ -38,28 +39,30 @@ namespace Le_Bomb
         {
             InitializeComponent();
 
-            // Open SQL Connection
-            OpenSqlConnection();
+            if (!OfflineMode) {
+                // Open SQL Connection
+                OpenSqlConnection();
 
-            // Get amount of runs to determine the current run ID
-            sqlCommand = new SqlCommand("SELECT COUNT(id) FROM runs", sqlConn);
-            sqlDataReader = sqlCommand.ExecuteReader();
+                // Get amount of runs to determine the current run ID
+                sqlCommand = new SqlCommand("SELECT COUNT(id) FROM runs", sqlConn);
+                sqlDataReader = sqlCommand.ExecuteReader();
             
-            while (sqlDataReader.Read())
-            {
-                RunID = sqlDataReader.GetInt32(0) + 1;
+                while (sqlDataReader.Read())
+                {
+                    RunID = sqlDataReader.GetInt32(0) + 1;
+                }
+
+                // Clean up
+                sqlDataReader.Close();
+                sqlCommand.Dispose();
+
+                // Insert run into database
+                sqlCommand = new SqlCommand("INSERT INTO runs (timer) VALUES (900)", sqlConn);
+                sqlDataAdapter.InsertCommand = sqlCommand;
+                sqlDataAdapter.InsertCommand.ExecuteNonQuery();
+
+                sqlCommand.Dispose();
             }
-
-            // Clean up
-            sqlDataReader.Close();
-            sqlCommand.Dispose();
-
-            // Insert run into database
-            sqlCommand = new SqlCommand("INSERT INTO runs (timer) VALUES (900)", sqlConn);
-            sqlDataAdapter.InsertCommand = sqlCommand;
-            sqlDataAdapter.InsertCommand.ExecuteNonQuery();
-
-            sqlCommand.Dispose();
 
             // Connect serial port
             try
@@ -130,7 +133,9 @@ namespace Le_Bomb
                 if (finalString.Length < 4)
                 {
                     timer = Convert.ToInt32(finalString);
-                    UpdateSqlRun(timer);
+
+                    if (!OfflineMode)
+                        UpdateSqlRun(timer);
                 }
 
                 this.Dispatcher.Invoke(() =>

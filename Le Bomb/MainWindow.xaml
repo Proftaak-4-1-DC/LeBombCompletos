@@ -81,5 +81,8 @@
         <Label Content="Woordzoeker" VerticalAlignment="Top" Margin="715,200,-354,0" FontSize="32"/>
         <Label Content="Virtual Desktop" VerticalAlignment="Top" Margin="981,200,-354,0" FontSize="32"/>
         <Label Content="Find the Bomb" VerticalAlignment="Top" Margin="1266,200,-354,0" FontSize="32"/>
+        <Label Content="Elke deur is een opdracht die je moet uitvoeren om één cijfer van de code te krijgen." HorizontalAlignment="Center" Margin="0,766,0,0" VerticalAlignment="Top" FontSize="36"/>
+        <Label Content="Lukt het jou om de bom te ontmantelen?" HorizontalAlignment="Center" Margin="0,824,0,0" VerticalAlignment="Top" FontSize="36"/>
+        <Label Content="(één keer klikken per deur)" HorizontalAlignment="Center" Margin="0,880,0,0" VerticalAlignment="Top" FontSize="24"/>
     </Grid>
 </Window>
